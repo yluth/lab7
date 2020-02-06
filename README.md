@@ -2,12 +2,12 @@
 ## lab7
 
 
-Before you start working, add the extra remote repository for lab7. To do so, run:
 
-`git remote add distribution https://github.com/cs51/lab7.git`
 
-To check for updates, run:
+Accept the Github Classroom assignnment at 
+[url.cs51.io/lab7](http://url.cs51.io/lab7). 
 
-`git pull distribution master`
+If this does not work _and a TF advises_, fork and then clone the repository at 
+[http://github.com/cs51/lab7](http://github.com/cs51/lab7) 
+and proceed as usual.
 
-You should run this periodically to check for updates.
