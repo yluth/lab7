@@ -29,7 +29,7 @@ module) would rather not expose. In other words, it provides a rigid
 for a programmer using your module to violate desired invariants.
 
 Let's say we want to build a stack data structure. A stack is similar
-to q queue (as described in Section 12.2) except that the last
+to a queue (as described in Section 12.2) except that the last
 element to be added to it is the first one to be removed. That is, it
 operates as a LIFO (Last-In First-Out) structure.
 
@@ -94,7 +94,7 @@ defines `last_el` as the value of the topmost element from `small_stack`.
 
 let last_el = 0 ;;
 
-(* Based on our requirements above, what should `last_el` be?
+(* Based on our requirements above, what should the value `last_el` be?
 
 Look more closely at the type of `small_stack`: it's of type `int
 list`. This is expected, since that's how we defined it, but this also
@@ -115,7 +115,8 @@ methods*.
 let invert_stack (s : IntListStack.stack) : IntListStack.stack =
   failwith "not implemented" ;;
 
-(* Now what would be the result of the top operation on `invert_stack`?
+(* Now what would be the result of the top operation on a stack
+inverted with `invert_stack`? Let's try it.
 
 ........................................................................
 Exercise 3E: Write an expression using `IntListStack` methods to get the
@@ -177,7 +178,7 @@ Exercise 3G: Write a function `safe_stack` that takes a unit and uses
 `SafeIntListStack.stack`, with the integers 5 and then 1 pushed onto
 it.
 
-Notice: what type is `safe_stack`? You should no longer be able to
+Notice: What type is `safe_stack`? You should no longer be able to
 perform list operations directly on it, which means the stack
 preserves its abstraction barrier.
 ......................................................................*)

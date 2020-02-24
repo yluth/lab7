@@ -20,11 +20,11 @@ Part 2: Files as modules
 
 A useful feature of OCaml is that it *automatically* wraps functions
 and values that are defined in a single file into a module named after
-that file during compilation. The module name is the name of the file
-with the first letter capitalized. This functionality is in addition
-to the manual definition of modules as you've just used in Part 1, but
-it is a convenient way of separating code into separate namespaces
-when writing a large program.
+that file. The module name is the name of the file with the first
+letter capitalized. This functionality is in addition to the manual
+definition of modules as you've just used in Part 1, but it is a
+convenient way of separating code into separate namespaces when
+writing a large program.
 
 There are other source files included in this lab, other than the
 lab7_partn.ml files. The file color.ml contains an implementation of a
@@ -41,17 +41,25 @@ color.ml to complete the exercises below.
 
     A digression on accessing other modules:
 
-    The "ocamlbuild" command should automatically find modules that
+    You'll want to test this part of the lab using ocamlbuild, for instance, with
+
+       % ocamlbuild lab7_part2.byte
+       % ./lab7_part2.byte
+
+    The ocamlbuild command should automatically find modules that
     you've written in the same directory as your source, compile those
     additional files, and link them to your compiled program. You can
     then access functions from those files under the module name,
     which (again) is the name of the file with the first letter
-    capitalized.
+    capitalized. For instance, if color.ml is in the same directory as
+    lab7_part2.ml (which it probably is), ocamlbuild will find it and
+    use it, since it is referenced through expressions like
+    `Color.red` and the like.
 
-    If you're testing with a top-level REPL, like utop or ocaml, it
-    will not automatically find those modules and evaluate them for
-    you. However, you can do so manually yourself with the #mod_use
-    directive, like this:
+    On the other hand, if you're testing with a top-level REPL, like
+    utop or ocaml, it will not automatically find those modules and
+    evaluate them for you. However, you can do so manually yourself
+    with the #mod_use directive, like this:
 
         # #mod_use "color.ml" ;;
 
@@ -70,19 +78,21 @@ color.ml to complete the exercises below.
     compiler (with ocamlbuild for instance).
 
 ........................................................................
-Exercise 2A: Extract the red channel of the color named Red, naming
-the result "red_channel".
+Exercise 2A: Replace the `0` in the expression below with an
+expression that extracts the red channel of the color named Red,
+thereby naming the result `red_channel`.
 ......................................................................*)
 
 let red_channel : int = 0 ;;
 
 (* Let's investigate one way that a signature can be useful. Although
 color.ml contains an implementation of a basic color module, the
-implementation is unintuitive and obscure. (We did that on purpose.)
-You will want to change the implementation of color.ml, rewriting it
-wholesale. At the same time, you'll want to guarantee to users of the
-module (like this file itself!) that the functionality stays the same;
-the way to do this is through module signatures.
+implementation is unintuitive and obscure -- truly horrid in fact. (We
+did that on purpose.) You will want to change the implementation of
+color.ml, rewriting it wholesale. At the same time, you'll want to
+guarantee to users of the module (like this file itself!) that the
+functionality stays the same; the way to do this is through module
+signatures.
 
 ......................................................................
 Exercise 2B: Add a file color.mli, in which you define an appropriate
@@ -97,7 +107,7 @@ compile color.ml and run color.byte.
 (*......................................................................
 Exercise 2C:
 
-In the file "color.ml", modify the implementation of a color module as
+In the file color.ml, modify the implementation of a color module as
 you see fit. Make the design choices that you think would be best for
 a color module implementation. In particular, you should be able to
 come up with a solution that is **much** clearer and more transparent

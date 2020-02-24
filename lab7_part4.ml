@@ -39,21 +39,22 @@ module type STACK =
 
 (*......................................................................
 Exercise 4A: Complete the implementation below of this stack module
-type. First, decide how you'll represent the stack (perhaps as lists),
-then implement each of the functions in the signature based on your
-decision. You may want to look at Part 3 for inspiration, but this
-implementation may differ from your previous implementation based on a
-design choice we describe below.
+type. First, decide how you'll represent the stack (perhaps as lists,
+though the abstraction barrier means that you're free to choose
+otherwise), then implement each of the functions in the signature
+based on your decision. You may want to look at Part 3 for
+inspiration, but this implementation may differ from your previous
+implementation based on a design choice we describe below.
 
 Then, implement each of the values in the stack signature above. We
 helped you out a little and defined `top` and `pop` for you,
 below. These rely on a helper function called `pop_helper`, which
-you'd need to implement. It should accept a stack and return a tuple
-containing the first element and a stack with the first element
-removed.
+you'd need to implement. It should accept a stack and return a pair
+containing the first element ofthe argument stack and a stack with the
+first element removed.
 
 Notice that the `pop_helper` function does *not* appear in the
-signature, and will therefore not be accessible to functions outside
+signature, and will therefore *not* be accessible to functions outside
 of the module.
 
 You'll want to take advantage of the `EmptyStack` exception provided
@@ -92,10 +93,10 @@ module Stack : STACK =
       snd (pop_helper s)
   end ;;
 
-  (*......................................................................
+(*......................................................................
 Exercise 4B: Write a function `sample_stack` that takes a unit
 argument and uses your Stack module to return a new stack with the
-following strings pushed in order: "Computer", "Science", "51".
+following strings pushed in order: `"Computer"`, `"Science"`, `"51"`.
 ......................................................................*)
 
 let sample_stack = fun _ -> failwith "sample_stack not implemented" ;;

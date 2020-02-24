@@ -75,7 +75,7 @@ let result = Some nan ;;
 
 (*......................................................................
 Exercise 1C: Reimplement the computation from 1B above, now as
-"result_local_open", but using a local open to write your computation
+`result_local_open`, but using a local open to write your computation
 in a more succinct manner.
 ......................................................................*)
 
